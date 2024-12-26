@@ -99,6 +99,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     // 允许next/image加载的图片 域名
     domains: [
+      'cdn.jsdelivr.net',
       'gravatar.com',
       'www.notion.so',
       'avatars.githubusercontent.com',
