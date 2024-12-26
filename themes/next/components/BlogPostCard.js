@@ -29,14 +29,14 @@ const BlogPostCard = ({ post, index, showSummary }) => {
     <Card className='w-full'>
       <div
         key={post.id}
-        className='flex flex-col-reverse justify-between duration-300'>
-        <div className='lg:p-8 p-4 flex flex-col w-full'>
+        className='flex flex-row justify-between duration-300 md:gap-6 gap-3'>
+        <div className='md:p-4 p-3 flex flex-col w-full'>
           {/* 文章标题 */}
           <Link
             {...aosProps}
             href={post?.href}
             passHref
-            className={`cursor-pointer text-3xl ${showPreview ? 'text-center' : ''} leading-tight text-gray-700 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400`}>
+            className='cursor-pointer text-2xl leading-tight text-gray-700 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400'>
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
             )}{' '}
@@ -45,7 +45,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
 
           <div
             {...aosProps}
-            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-500 text-gray-500 `}>
+            className='flex mt-2 mb-3 items-center justify-start flex-wrap dark:text-gray-500 text-gray-500'>
             <div>
               {post.category && (
                 <>
@@ -82,7 +82,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-4 mb-12 text-gray-700 dark:text-gray-300 text-sm font-light leading-7'>
+              className='mt-2 mb-6 text-gray-700 dark:text-gray-300 text-sm font-light leading-6'>
               {post.summary}
             </p>
           )}
@@ -102,10 +102,11 @@ const BlogPostCard = ({ post, index, showSummary }) => {
             </div>
           )}
 
-          <div className='text-right border-t pt-8 border-dashed'>
+          {/* 详情按钮 */}
+          <div className='text-left mt-auto flex md:justify-start justify-end'>
             <Link
               href={post?.href}
-              className='hover:bg-opacity-100 hover:underline transform duration-300 p-3 text-white bg-gray-800 cursor-pointer'>
+              className='inline-block px-4 py-2 text-sm text-white bg-gray-800 hover:bg-gray-700 transition-colors rounded'>
               {locale.COMMON.ARTICLE_DETAIL}
               <i className='ml-1 fas fa-angle-right' />
             </Link>
@@ -115,14 +116,14 @@ const BlogPostCard = ({ post, index, showSummary }) => {
         {siteConfig('NEXT_POST_LIST_COVER', null, CONFIG) &&
           post?.pageCoverThumbnail && (
             <Link href={post?.href} passHref legacyBehavior>
-              <div className='h-72 w-full relative duration-200 cursor-pointer transform overflow-hidden'>
+              <div className='hidden md:flex w-64 items-center justify-center relative duration-200 cursor-pointer overflow-hidden flex-shrink-0 md:ml-2'>
                 <Image
                   className='hover:scale-105 transform duration-500'
                   src={post?.pageCoverThumbnail}
                   alt={post.title}
-                  layout='fill'
-                  objectFit='cover'
-                  loading='lazy'
+                  width={256}
+                  height={256}
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
             </Link>
