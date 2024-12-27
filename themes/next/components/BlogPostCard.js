@@ -30,7 +30,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
       <div
         key={post.id}
         className='flex flex-row justify-between duration-300 md:gap-6 gap-3'>
-        <div className='md:p-4 p-3 flex flex-col w-full'>
+        <div className='md:p-4 px-3 flex flex-col w-full'>
           {/* 文章标题 */}
           <Link
             {...aosProps}
@@ -82,7 +82,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-2 mb-6 text-gray-700 dark:text-gray-300 text-sm font-light leading-6'>
+              className='mt-2 md:mb-6 mb-2 text-gray-700 dark:text-gray-300 text-sm font-light leading-6'>
               {post.summary}
             </p>
           )}
