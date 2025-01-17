@@ -29,7 +29,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
     <Card className='w-full'>
       <div
         key={post.id}
-        className='flex flex-row justify-between duration-300 md:gap-6 gap-3'>
+        className='flex flex-row justify-between duration-300 md:gap-6 gap-3 max-h-[200px]'>
         <div className='md:p-4 px-3 flex flex-col w-full'>
           {/* 文章标题 */}
           <Link
